@@ -1,0 +1,254 @@
+[
+  {
+    "company_id": "stryker_bd",
+    "company_name": "Stryker",
+    "website": "https://drinkstryker.com",
+    "brand_info": {
+      "description": "Bangladesh’s first sugar-free electrolyte drink developed in Germany and made for Bangladesh.",
+      "taglines": [
+        "Bangladesh’s 1st Sugar-Free Electrolyte Drink",
+        "Developed in Germany – Made for Bangladesh",
+        "No Sugar. Pure Hydration"
+      ],
+      "features": [
+        "Awesome taste",
+        "Zero sugar",
+        "High in electrolytes",
+        "Developed in Germany"
+      ],
+      "brand_message": "STRYKER is the alternative to sugary electrolyte drinks. With STRYKER you finally get amazing taste with a good feeling."
+    },
+    "contact_info": {
+      "email": "info@drinkstryker.com",
+      "phone": "+8801770375731",
+      "whatsapp": "https://wa.me/8801770375731",
+      "addresses": [
+        {
+          "label": "Office Address 1",
+          "address": "House-28, Road-1, Swapnodhara Housing, Mohammadpur, Dhaka-1207"
+        },
+        {
+          "label": "Office Address 2",
+          "address": "Suite-3B, House-40, Road-1, Block-A, Niketon, Gulshan, Dhaka-1212, Bangladesh"
+        }
+      ]
+    },
+    "social_links": {
+      "facebook": "https://www.facebook.com/drinkstryker",
+      "instagram": "https://www.instagram.com/drink_stryker/",
+      "tiktok": "https://www.tiktok.com/@drink.stryker",
+      "whatsapp": "https://wa.me/8801770375731"
+    },
+    "products": [
+      {
+        "id": "prod_mixed_flavor",
+        "title": "Mixed Flavor",
+        "description": "Bangladesh’s first sugar-free electrolyte drink. Awesome taste, zero sugar, high in electrolytes.",
+        "price": "৳99/Bottle",
+        "url": "https://drinkstryker.com/product/mixed-flavor-12-bottles/",
+        "images": ["https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_05.jpg"],
+        "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=21912",
+        "compare_url": "https://drinkstryker.com/?add-to-compare=21912"
+      },
+      {
+        "id": "prod_blue_raspberry",
+        "title": "Blue Raspberry Flavor",
+        "description": "Zero sugar electrolyte drink with clean ingredients and great taste.",
+        "price": "৳99/Bottle",
+        "url": "https://drinkstryker.com/product/blue-raspberry-flavor-12-bottles/",
+        "images": [
+          "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_04.jpg",
+          "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_11.jpg"
+        ],
+        "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=21850",
+        "compare_url": "https://drinkstryker.com/?add-to-compare=21850"
+      },
+      {
+        "id": "prod_mango_orange",
+        "title": "Mango Orange Flavor",
+        "description": "Delicious zero sugar electrolyte drink for recovery and hydration.",
+        "price": "৳99/Bottle",
+        "url": "https://drinkstryker.com/product/mango-orange-flavor-12-bottles/",
+        "images": [
+          "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_03.jpg",
+          "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_08.jpg"
+        ],
+        "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=21848",
+        "compare_url": "https://drinkstryker.com/?add-to-compare=21848"
+      },
+      {
+        "id": "prod_strawberry_watermelon",
+        "title": "Strawberry Watermelon Flavor",
+        "description": "Refreshing electrolyte drink with zero sugar, perfect for active lifestyle.",
+        "price": "৳99/Bottle",
+        "url": "https://drinkstryker.com/product/strawberry-watermelon-flavor-12-bottles/",
+        "images": [
+          "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_02.jpg",
+          "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_01.jpg"
+        ],
+        "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=21803",
+        "compare_url": "https://drinkstryker.com/?add-to-compare=21803"
+      },
+      {
+        "id": "prod_6_bottles_tshirt",
+        "title": "6 Bottles Stryker (Mixed) + 1 Murgi Squad T-Shirt",
+        "description": "Bundle offer with exclusive Stryker T-shirt.",
+        "price": "৳999",
+        "url": "https://drinkstryker.com/product/6-bottles-stryker-1-murgi-squad-t-shirt/",
+        "images": [
+          "https://drinkstryker.com/wp-content/uploads/2025/05/Product-Images-1.jpg",
+          "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_11.jpg"
+        ],
+        "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=22828",
+        "compare_url": "https://drinkstryker.com/?add-to-compare=22828"
+      }
+    ],
+    "testimonials": [
+      {
+        "id": "tst_snigdho",
+        "title": "Snigdho – Marathon Runner",
+        "content": "Stryker keeps me focused and energized throughout my long-distance runs. With no sugar and clean electrolytes, it gives my body exactly what it needs."
+      },
+      {
+        "id": "tst_dr_neon",
+        "title": "Dr. Neon – Bodybuilder",
+        "content": "In the gym, every set and rep matters. Stryker gives me a clean boost with zero sugar and essential electrolytes."
+      },
+      {
+        "id": "tst_steve_long",
+        "title": "Steve Long – Founder",
+        "content": "Healthy hydration options were hard to find in Bangladesh, so I created Stryker. Developed in Germany, it’s packed with clean electrolytes and zero sugar."
+      }
+    ],
+    "career": {
+      "intro": {
+        "headline": "Join the Movement. Fuel the Nation.",
+        "description": "We’re here to shake up the drink industry — with bold ideas, zero sugar, and full-on hydration. Stryker is for the new Bangladesh."
+      },
+      "why_work_with_us": [
+        {
+          "title": "Startup Vibes with Real Impact",
+          "description": "We move fast, think big, and take action. Every team member plays a vital role in shaping the brand."
+        },
+        {
+          "title": "Collaborative & Open Culture",
+          "description": "We believe in transparency, teamwork, and mutual respect. Great ideas can come from anywhere."
+        },
+        {
+          "title": "Continuous Learning",
+          "description": "At Stryker, you’ll never stop learning. Exposed to product development, brand storytelling, and fitness culture."
+        },
+        {
+          "title": "Passion Meets Purpose",
+          "description": "We’re passionate about a better lifestyle for our generation. You’ll fit right in if you love health, branding, and community."
+        },
+        {
+          "title": "People Come First",
+          "description": "Flexible work policies and fun team hangouts. Team works hard, laughs harder, supports each other."
+        }
+      ],
+      "open_positions": [
+        {
+          "id": "job_graphic_designer",
+          "title": "Graphic Designer",
+          "experience": "02 Years",
+          "starting_salary": "৳20,000",
+          "apply_url": "https://drinkstryker.com/blog/job/graphic-designer/",
+          "notes": "If you’re passionate about what we do and think you’d be a great fit, send us your CV anyway."
+        }
+      ],
+      "perks_and_benefits": [
+        {
+          "title": "Competitive Salary",
+          "description": "Performance reviews after 6 months, with salary increase based on results."
+        },
+        {
+          "title": "Wellness Support",
+          "description": "Access to our running club, yoga sessions, and more."
+        },
+        {
+          "title": "Snacks on Snacks",
+          "description": "Because hydration is a lifestyle, not just a drink."
+        },
+        {
+          "title": "Free “Murgi Squad” T-Shirts",
+          "description": "Courses, mentorship, and a front-row seat to a growing brand."
+        },
+        {
+          "title": "Unlimited Stryker",
+          "description": "Take home as much Stryker as you can carry."
+        },
+        {
+          "title": "Team Photoshoots",
+          "description": "Yes, we make you pose like a startup influencer. Sorry, not sorry."
+        },
+        {
+          "title": "Movie Nights & Meme Wars",
+          "description": "All part of team bonding (and slightly too competitive)."
+        },
+        {
+          "title": "Culture",
+          "description": "We work hard, hydrate harder, and know when to laugh at ourselves."
+        }
+      ]
+    },
+    "promotions": [
+      {
+        "id": "promo_whatsapp",
+        "title": "Come join the squad",
+        "description": "Get your exclusive STRYKER deal on WhatsApp.",
+        "cta_text": "Get your Discount",
+        "cta_url": "https://wa.me/8801770375731?text=Where’s%20my%20mystery%20discount%3F",
+        "privacy_notice": "With the confirmation you accept our privacy policy and stay up to date via e-mail."
+      }
+    ],
+    "community": [
+      {
+        "id": "community_running_club",
+        "title": "Stryker Running Club",
+        "description": "Weekly and bi-weekly running events open to all fitness levels focused on movement, community, and hydration.",
+        "url": "https://drinkstryker.com/running-club/"
+      }
+    ],
+    "legal": {
+      "trade_license_number": "TRAD/DNCC/020451/2024",
+      "copyright": {
+        "year": "2025",
+        "owner": "Stryker"
+      },
+      "development_credit": {
+        "agency": "Studio Akabaka",
+        "website": "https://akabaka.co/"
+      }
+    },
+    "call_to_actions": [
+      {
+        "text": "Shop Now"
+      },
+      {
+        "text": "Chat on WhatsApp",
+        "description": "Got questions or want to order? Just ask Bristy on WhatsApp.",
+        "url": "https://wa.me/1770375731?text=I'm%20interested%20in%20your%20product!"
+      },
+      {
+        "text": "Join next session",
+        "url": "https://drinkstryker.com/running-club/"
+      }
+    ],
+    "social_proof": {
+      "headline": "Recommended by Athletes",
+      "rating": "5.0",
+      "reviews_count": 5
+    },
+    "product_images": [
+      "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_05.jpg",
+      "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_04.jpg",
+      "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_11.jpg",
+      "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_03.jpg",
+      "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_08.jpg",
+      "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_02.jpg",
+      "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_01.jpg",
+      "https://drinkstryker.com/wp-content/uploads/2025/05/Product-Images-1.jpg"
+    ]
+  }
+]

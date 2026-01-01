@@ -1,0 +1,80 @@
+{
+  "call_to_actions": [
+    {
+      "text": "Shop Now"
+    },
+    {
+      "text": "Chat on WhatsApp",
+      "description": "Got questions or want to order? Just ask Bristy on WhatsApp.",
+      "url": "https://wa.me/1770375731?text=I'm%20interested%20in%20your%20product!"
+    },
+    {
+      "text": "Join next session",
+      "url": "https://drinkstryker.com/running-club/"
+    }
+  ],
+
+  "social_proof": {
+    "headline": "Recommended by Athletes",
+    "rating": "5.0",
+    "reviews_count": 5
+  },
+
+  "brand_message": {
+    "description": "STRYKER is the alternative to sugary electrolyte drinks. With STRYKER you finally get amazing taste with a good feeling."
+  },
+
+  "product_images": [
+    "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_05.jpg",
+    "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_04.jpg",
+    "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_11.jpg",
+    "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_03.jpg",
+    "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_08.jpg",
+    "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_02.jpg",
+    "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_01.jpg",
+    "https://drinkstryker.com/wp-content/uploads/2025/05/Product-Images-1.jpg"
+  ],
+
+  "product_highlights": [
+    {
+      "title": "Awesome Taste",
+      "icon": "https://drinkstryker.com/wp-content/uploads/2025/03/6.png"
+    },
+    {
+      "title": "Zero Sugar or Bullsh*t",
+      "icon": "https://drinkstryker.com/wp-content/uploads/2025/03/8.png"
+    },
+    {
+      "title": "High in Electrolytes",
+      "icon": "https://drinkstryker.com/wp-content/uploads/2025/03/7.png"
+    },
+    {
+      "title": "Developed in Germany",
+      "icon": "https://drinkstryker.com/wp-content/uploads/2025/03/9.png"
+    }
+  ],
+
+  "community": {
+    "name": "Stryker Running Club",
+    "description": "Weekly and bi-weekly running events focused on movement, community, and hydration. Open to all fitness levels.",
+    "url": "https://drinkstryker.com/running-club/",
+    "gallery": [
+      "https://drinkstryker.com/wp-content/uploads/2025/07/12-min.png",
+      "https://drinkstryker.com/wp-content/uploads/2025/07/23-min.png",
+      "https://drinkstryker.com/wp-content/uploads/2025/07/6-min.png",
+      "https://drinkstryker.com/wp-content/uploads/2025/07/26-min.png",
+      "https://drinkstryker.com/wp-content/uploads/2025/07/14-min.png",
+      "https://drinkstryker.com/wp-content/uploads/2025/07/28-min.png",
+      "https://drinkstryker.com/wp-content/uploads/2025/07/7-min.png"
+    ]
+  },
+
+  "availability": {
+    "headline": "Also available near you at",
+    "description": "Stryker is now available at your favorite supermarkets, including Unimart, Meena Bazar, and Apon Family Mart across Dhaka. You can also order online via Foodpanda and Arogga. We are expanding to more cities and platforms soon."
+  },
+
+  "instagram_section": {
+    "headline": "Follow us on Instagram"
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "stryker_legal_info_and_licence_chunk_1",
+    "company_id": "stryker_bd",
+    "type": "legal",
+    "title": "Legal Information",
+    "content": "Trade License: TRAD/DNCC/020451/2024. Copyright: {'year': '2025', 'owner': 'Stryker'}. Development: {'agency': 'Studio Akabaka', 'website': 'https://akabaka.co/'}",
+    "metadata": {
+      "section": "legal",
+      "type": "paragraph",
+      "language": "en"
+    }
+  }
+]

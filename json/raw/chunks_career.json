@@ -1,0 +1,148 @@
+[
+  {
+    "id": "stryker.career.intro.001",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "introduction",
+    "title": "Company Overview",
+    "content": "Stryker is a hydration-focused beverage brand in Bangladesh offering zero-sugar drinks. The company aims to promote a healthier lifestyle through modern branding and community-driven initiatives.",
+    "metadata": {
+      "language": "en",
+      "audience": "job_seeker",
+      "importance": "high"
+    }
+  },
+
+  {
+    "id": "stryker.career.why.001",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "why_work_here",
+    "title": "Startup Environment",
+    "content": "Stryker operates with a fast-paced startup culture where employees take ownership and directly influence brand growth.",
+    "metadata": {
+      "language": "en",
+      "team_size": "small",
+      "work_style": "fast-paced"
+    }
+  },
+
+  {
+    "id": "stryker.career.why.002",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "why_work_here",
+    "title": "Company Culture",
+    "content": "The company values transparency, collaboration, and respect. Employees are encouraged to share ideas regardless of role or seniority.",
+    "metadata": {
+      "language": "en",
+      "culture": "collaborative, open"
+    }
+  },
+
+  {
+    "id": "stryker.career.why.003",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "why_work_here",
+    "title": "Learning Opportunities",
+    "content": "Employees gain hands-on exposure to product development, brand marketing, and fitness-focused community projects.",
+    "metadata": {
+      "language": "en",
+      "growth": "continuous_learning"
+    }
+  },
+
+  {
+    "id": "stryker.career.why.004",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "why_work_here",
+    "title": "Employee Wellbeing",
+    "content": "Stryker promotes work-life balance through flexible work policies and team bonding activities.",
+    "metadata": {
+      "language": "en",
+      "benefit_type": "wellbeing"
+    }
+  },
+
+  {
+    "id": "stryker.career.job.001",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "open_position",
+    "title": "Graphic Designer",
+    "content": "Stryker is hiring a Graphic Designer responsible for visual content creation aligned with the brand’s identity.",
+    "metadata": {
+      "language": "en",
+      "experience_required_years": 2,
+      "salary_bdt_starting": 20000,
+      "job_type": "full_time",
+      "apply_url": "https://drinkstryker.com/blog/job/graphic-designer/"
+    }
+  },
+
+  {
+    "id": "stryker.career.job.note.001",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "application_note",
+    "title": "General Application",
+    "content": "Candidates who are passionate about the brand are encouraged to submit their CV even if they do not meet every requirement.",
+    "metadata": {
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker.career.perk.001",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "perks",
+    "title": "Salary Review",
+    "content": "Employees receive performance reviews after six months, with salary adjustments based on performance.",
+    "metadata": {
+      "language": "en",
+      "perk_type": "compensation"
+    }
+  },
+
+  {
+    "id": "stryker.career.perk.002",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "perks",
+    "title": "Wellness Programs",
+    "content": "Team members can participate in wellness activities such as running clubs and yoga sessions.",
+    "metadata": {
+      "language": "en",
+      "perk_type": "health"
+    }
+  },
+
+  {
+    "id": "stryker.career.perk.003",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "perks",
+    "title": "Product Benefits",
+    "content": "Employees receive unlimited access to Stryker beverages.",
+    "metadata": {
+      "language": "en",
+      "perk_type": "product"
+    }
+  },
+
+  {
+    "id": "stryker.career.perk.004",
+    "company_id": "stryker_bd",
+    "category": "career",
+    "sub_category": "perks",
+    "title": "Team Activities",
+    "content": "The company organizes team photoshoots, movie nights, and informal social events to strengthen team bonding.",
+    "metadata": {
+      "language": "en",
+      "perk_type": "culture"
+    }
+  }
+]

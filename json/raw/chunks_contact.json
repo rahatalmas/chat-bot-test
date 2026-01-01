@@ -1,0 +1,14 @@
+[
+  {
+    "id": "stryker_contacts_chunk_1",
+    "company_id": "stryker_bd",
+    "type": "contact",
+    "title": "Contact Info",
+    "content": "Email: info@drinkstryker.com, Phone: +8801770375731, WhatsApp: https://wa.me/8801770375731",
+    "metadata": {
+      "section": "perks",
+      "type": "paragraph",
+      "language": "en"
+    }
+  }
+]

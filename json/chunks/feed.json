@@ -1,0 +1,263 @@
+[
+  {
+    "id": "stryker_career_intro_001",
+    "document": "Stryker is a hydration-focused beverage brand in Bangladesh offering zero-sugar drinks. The company aims to promote a healthier lifestyle through modern branding and community-driven initiatives.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "career",
+      "category": "introduction",
+      "keywords": ["career", "job", "company overview"],
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_career_why_001",
+    "document": "Stryker operates with a fast-paced startup culture where employees take ownership and directly influence brand growth.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "career",
+      "category": "work_culture",
+      "keywords": ["culture", "startup", "environment", "why work here"],
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_career_job_001",
+    "document": "Stryker is hiring a Graphic Designer responsible for visual content creation aligned with the brand’s identity. salary 20,000-30,000",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "career",
+      "category": "job_opening",
+      "keywords": ["job", "position", "hiring", "graphic designer"],
+      "language": "en",
+      "salary_bdt": 20000,
+      "experience_required_years": 2,
+      "job_type": "full_time",
+      "apply_url": "https://drinkstryker.com/blog/job/graphic-designer/"
+    }
+  },
+  {
+    "id": "stryker_career_perks_001",
+    "document": "Employees receive performance reviews after six months, with salary adjustments based on performance.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "career",
+      "category": "perks",
+      "keywords": ["perk", "benefits", "salary review"],
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_career_perks_002",
+    "document": "Team members can participate in wellness activities such as running clubs and yoga sessions.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "career",
+      "category": "perks",
+      "keywords": ["perk", "wellness", "health programs"],
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_career_perks_003",
+    "document": "Employees receive unlimited access to Stryker beverages.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "career",
+      "category": "perks",
+      "keywords": ["perk", "product benefits", "drinks"],
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_career_perks_004",
+    "document": "The company organizes team photoshoots, movie nights, and informal social events to strengthen team bonding.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "career",
+      "category": "perks",
+      "keywords": ["perk", "team activities", "culture"],
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_product_mixed_001",
+    "document": "Stryker Mixed Flavor is a sugar-free electrolyte drink sold in Bangladesh. It contains essential electrolytes for hydration, workout performance, and post-workout recovery.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "electrolyte_drink",
+      "keywords": ["mixed flavor", "drink", "hydration", "workout", "sugar free"],
+      "flavor": "mixed",
+      "sugar_free": true,
+      "price_bdt": 399,
+      "currency": "BDT",
+      "unit": "bottle",
+      "product_url": "https://drinkstryker.com/product/mixed-flavor-12-bottles/"
+    }
+  },
+  {
+    "id": "stryker_product_blue_raspberry_001",
+    "document": "Stryker Blue Raspberry is a zero-sugar electrolyte sports drink for hydration and workouts.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "electrolyte_drink",
+      "keywords": ["blue raspberry", "drink", "hydration", "workout", "sugar free"],
+      "flavor": "blue raspberry",
+      "sugar_free": true,
+      "price_bdt": 399,
+      "currency": "BDT",
+      "unit": "bottle",
+      "product_url": "https://drinkstryker.com/product/blue-raspberry-flavor-12-bottles/"
+    }
+  },
+  {
+    "id": "stryker_product_mango_orange_001",
+    "document": "Stryker Mango Orange is a sugar-free electrolyte drink created for hydration and post-workout recovery.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "electrolyte_drink",
+      "keywords": ["mango orange", "drink", "hydration", "recovery", "sugar free"],
+      "flavor": "mango orange",
+      "sugar_free": true,
+      "price_bdt": 399,
+      "currency": "BDT",
+      "unit": "bottle",
+      "product_url": "https://drinkstryker.com/product/mango-orange-flavor-12-bottles/"
+    }
+  },
+  {
+    "id": "stryker_product_strawberry_watermelon_001",
+    "document": "Stryker Strawberry Watermelon is a zero-sugar electrolyte drink designed for daily hydration and active lifestyles.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "electrolyte_drink",
+      "keywords": ["strawberry watermelon", "drink", "hydration", "sugar free"],
+      "flavor": "strawberry watermelon",
+      "sugar_free": true,
+      "price_bdt": 399,
+      "currency": "BDT",
+      "unit": "bottle",
+      "product_url": "https://drinkstryker.com/product/strawberry-watermelon-flavor-12-bottles/"
+    }
+  },
+  {
+    "id": "stryker_product_bundle_001",
+    "document": "The Stryker bundle offer includes six bottles of sugar-free electrolyte drinks and one Murgi Squad T-shirt.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "bundle_offer",
+      "keywords": ["bundle", "drink", "merchandise", "sugar free", "electrolytes"],
+      "bundle": true,
+      "includes_merchandise": true,
+      "sugar_free": true,
+      "price_bdt": 3999,
+      "currency": "BDT",
+      "unit": "bundle",
+      "product_url": "https://drinkstryker.com/product/6-bottles-stryker-1-murgi-squad-t-shirt/"
+    }
+  },
+
+  {
+    "id": "stryker_brand_info_001",
+    "document": "Stryker is Bangladesh’s first sugar-free electrolyte drink, developed in Germany. It provides essential electrolytes and promotes healthy hydration.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "brand",
+      "category": "brand_info",
+      "keywords": ["brand", "company", "hydration", "sugar free"],
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_testimonial_runner_001",
+    "document": "Snigdho, a marathon runner, states that Stryker helps him stay focused and energized during long-distance runs.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "testimonial",
+      "category": "athlete_testimonial",
+      "keywords": ["marathon runner", "testimonial", "athlete"],
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_testimonial_bodybuilder_001",
+    "document": "Dr. Neon, a bodybuilder, shares that Stryker supports his gym performance by providing a clean boost.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "testimonial",
+      "category": "athlete_testimonial",
+      "keywords": ["bodybuilder", "testimonial", "athlete"],
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_testimonial_founder_001",
+    "document": "Steve Long, the founder of Stryker, explains that the brand was created to solve the lack of healthy hydration options in Bangladesh.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "testimonial",
+      "category": "founder_statement",
+      "keywords": ["founder", "creator", "steve long", "origin", "history"],
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_contact_info_001",
+    "document": "Stryker customer support can be contacted via email, phone, or WhatsApp. Email: info@drinkstryker.com, Phone/WhatsApp: +8801770375731.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "contact",
+      "category": "contact_info",
+      "keywords": ["contact", "support", "email", "phone", "whatsapp"],
+      "language": "en",
+      "email": "info@drinkstryker.com",
+      "phone": "+8801770375731"
+    }
+  },
+  {
+    "id": "stryker_legal_info_001",
+    "document": "Stryker operates under a registered trade license in Bangladesh. Trade license: TRAD/DNCC/020451/2024. The website was developed by Studio Akabaka.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "legal",
+      "category": "legal_info",
+      "keywords": ["license", "legal", "developer", "copyright"],
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_promotion_whatsapp_001",
+    "document": "Stryker offers exclusive promotional discounts through WhatsApp. Contact on WhatsApp to receive special deals.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "promotion",
+      "category": "discount_offer",
+      "keywords": ["promotion", "discount", "whatsapp", "deal"],
+      "language": "en",
+      "cta_url": "https://wa.me/8801770375731"
+    }
+  },
+  {
+    "id": "stryker_social_links_001",
+    "document": "Stryker is active on social media platforms including Facebook, Instagram, TikTok, and WhatsApp.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "social",
+      "category": "social_links",
+      "keywords": ["social", "facebook", "instagram", "tiktok", "whatsapp"],
+      "language": "en",
+      "facebook_url": "https://www.facebook.com/drinkstryker",
+      "instagram_url": "https://www.instagram.com/drink_stryker/",
+      "tiktok_url": "https://www.tiktok.com/@drink.stryker",
+      "whatsapp_url": "https://wa.me/8801770375731"
+    }
+  }
+]

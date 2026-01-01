@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "name": "Mixed Flavor",
+      "price": "৳99/Bottle",
+      "product_url": "https://drinkstryker.com/product/mixed-flavor-12-bottles/",
+      "image": "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_05.jpg",
+      "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=21912",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=21912"
+    },
+    {
+      "name": "Blue Raspberry Flavor",
+      "price": "৳99/Bottle",
+      "product_url": "https://drinkstryker.com/product/blue-raspberry-flavor-12-bottles/",
+      "image": "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_04.jpg",
+      "alt_image": "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_11.jpg",
+      "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=21850",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=21850"
+    },
+    {
+      "name": "Mango Orange Flavor",
+      "price": "৳99/Bottle",
+      "product_url": "https://drinkstryker.com/product/mango-orange-flavor-12-bottles/",
+      "image": "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_03.jpg",
+      "alt_image": "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_08.jpg",
+      "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=21848",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=21848"
+    },
+    {
+      "name": "Strawberry Watermelon Flavor",
+      "price": "৳99/Bottle",
+      "product_url": "https://drinkstryker.com/product/strawberry-watermelon-flavor-12-bottles/",
+      "image": "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_02.jpg",
+      "alt_image": "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_01.jpg",
+      "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=21803",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=21803"
+    },
+    {
+      "name": "6 Bottles Stryker(Mixed) + 1 Murgi Squad T-Shirt",
+      "price": "",
+      "product_url": "https://drinkstryker.com/product/6-bottles-stryker-1-murgi-squad-t-shirt/",
+      "image": "https://drinkstryker.com/wp-content/uploads/2025/05/Product-Images-1.jpg",
+      "alt_image": "https://drinkstryker.com/wp-content/uploads/2025/05/Stryker_Bottle_11.jpg",
+      "wishlist_url": "https://drinkstryker.com/?add-to-wishlist=22828",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=22828"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "stryker_social_links_chunk_1",
+    "company_id": "stryker_bd",
+    "type": "social_links",
+    "title": "Social Links",
+    "content": "Facebook, Instagram, TikTok, WhatsApp",
+    "metadata": {
+      "facebook": "https://www.facebook.com/drinkstryker",
+      "instagram": "https://www.instagram.com/drink_stryker/",
+      "tiktok": "https://www.tiktok.com/@drink.stryker",
+      "whatsapp": "https://wa.me/8801770375731"
+    }
+  }
+]

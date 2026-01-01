@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stryker AI Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom Scrollbar */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .message-enter {
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .typing-indicator span {
+            animation: pulse 1.4s infinite;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .chat-widget-btn {
+            animation: bounce 2s infinite;
+        }
+        
+        /* Widget Styles */
+        .chat-widget-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 400px;
+            height: 600px;
+            max-height: calc(100vh - 120px);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: none;
+        }
+        
+        .chat-window.open {
+            display: flex;
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 640px) {
+            .chat-window {
+                width: calc(100vw - 20px);
+                height: calc(100vh - 100px);
+                right: 10px;
+                bottom: 80px;
+                border-radius: 16px;
+            }
+            
+            .chat-widget-container {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+        
+        /* Product Card Styles */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-online {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Chat Widget Container -->
+    <div class="chat-widget-container">
+        <!-- Chat Window -->
+        <div id="chatWindow" class="chat-window bg-white flex flex-col">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
+                        S
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-base">Stryker Assistant</h3>
+                        <div class="status-badge status-online">
+                            <span class="status-dot"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-white hover:bg-white/20 p-2 rounded-lg transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Messages Container -->
+            <div id="chatMessages" class="chat-messages flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+                <!-- Welcome Message -->
+                <div class="flex gap-3 message-enter">
+                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                        S
+                    </div>
+                    <div class="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm max-w-[80%]">
+                        <p class="text-gray-800 text-sm leading-relaxed">
+                            Hello! 👋 I'm Stryker's AI assistant. I can help you with:
+                        </p>
+                        <ul class="mt-2 space-y-1 text-sm text-gray-700">
+                            <li>🥤 Product information & pricing</li>
+                            <li>🛒 Orders & bulk purchases</li>
+                            <li>💼 Career opportunities</li>
+                            <li>📞 Contact information</li>
+                        </ul>
+                        <p class="mt-2 text-sm text-gray-600">How can I assist you today?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="p-4 bg-white border-t border-gray-200">
+                <div class="flex gap-2">
+                    <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="Type your message..."
+                        class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                        onkeypress="handleKeyPress(event)"
+                    />
+                    <button
+                        onclick="sendMessage()"
+                        id="sendButton"
+                        class="bg-blue-600 text-white px-5 py-3 rounded-xl hover:bg-blue-700 transition font-medium text-sm flex items-center gap-2"
+                    >
+                        <span>Send</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mt-2 text-center">Powered by AI • Stryker Bangladesh</p>
+            </div>
+        </div>
+        
+        <!-- Chat Toggle Button -->
+        <button
+            onclick="toggleChat()"
+            id="chatToggleBtn"
+            class="chat-widget-btn w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
+        >
+            <svg id="chatIcon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+            </svg>
+            <span id="unreadBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center hidden">
+                1
+            </span>
+        </button>
+    </div>
+
+    <script>
+        // ==================== WEBSOCKET CONFIGURATION ====================
+        // PRODUCTION: Change this to your VPS domain
+        // Example: const WS_SERVER = 'wss://your-domain.com:8000';
+        const WS_SERVER = 'ws://localhost:8000';  // CHANGE THIS IN PRODUCTION
+        
+        // WebSocket Connection
+        let ws = null;
+        let clientId = localStorage.getItem('stryker_client_id') || generateClientId();
+        let isConnected = false;
+        let reconnectAttempts = 0;
+        const MAX_RECONNECT_ATTEMPTS = 10;
+        const RECONNECT_DELAY = 2000; // 2 seconds
+        
+        // Generate unique client ID
+        function generateClientId() {
+            const id = 'client_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('stryker_client_id', id);
+            return id;
+        }
+        
+        // Initialize WebSocket
+        function initWebSocket() {
+            // Close existing connection if any
+            if (ws) {
+                ws.close();
+            }
+            
+            const wsUrl = `${WS_SERVER}/ws/${clientId}`;
+            console.log('Connecting to:', wsUrl);
+            
+            try {
+                ws = new WebSocket(wsUrl);
+            } catch (error) {
+                console.error('WebSocket creation failed:', error);
+                updateConnectionStatus(false);
+                attemptReconnect();
+                return;
+            }
+            
+            ws.onopen = () => {
+                console.log('✓ Connected to Stryker AI');
+                isConnected = true;
+                reconnectAttempts = 0;
+                updateConnectionStatus(true);
+                
+                // Show connection success message
+                if (document.getElementById('chatWindow').classList.contains('open')) {
+                    showSystemMessage('Connected successfully! 🎉');
+                }
+            };
+            
+            ws.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    handleServerMessage(data);
+                } catch (error) {
+                    console.error('Error parsing message:', error);
+                }
+            };
+            
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+                updateConnectionStatus(false);
+            };
+            
+            ws.onclose = (event) => {
+                console.log('✗ Disconnected from server', event.code, event.reason);
+                isConnected = false;
+                updateConnectionStatus(false);
+                attemptReconnect();
+            };
+        }
+        
+        // Show system message
+        function showSystemMessage(text) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'text-center';
+            messageDiv.innerHTML = `
+                <div class="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-xs fade-in">
+                    ${escapeHtml(text)}
+                </div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+        }
+        
+        // Reconnection logic
+        function attemptReconnect() {
+            if (reconnectAttempts < MAX_RECONNECT_ATTEMPTS) {
+                reconnectAttempts++;
+                const delay = RECONNECT_DELAY * reconnectAttempts;
+                console.log(`Reconnecting in ${delay/1000}s... (Attempt ${reconnectAttempts}/${MAX_RECONNECT_ATTEMPTS})`);
+                
+                updateConnectionStatus(false, `Reconnecting... (${reconnectAttempts}/${MAX_RECONNECT_ATTEMPTS})`);
+                
+                setTimeout(() => {
+                    console.log('Attempting reconnection...');
+                    initWebSocket();
+                }, delay);
+            } else {
+                console.error('Max reconnection attempts reached');
+                updateConnectionStatus(false, 'Connection failed');
+                addBotMessage(
+                    'Unable to connect to the server. Please check your connection and refresh the page.',
+                    'error'
+                );
+            }
+        }
+        
+        // Update connection status UI
+        function updateConnectionStatus(connected, customMessage = null) {
+            const statusBadge = document.querySelector('.status-badge');
+            if (!statusBadge) return;
+            
+            if (connected) {
+                statusBadge.className = 'status-badge status-online';
+                statusBadge.innerHTML = '<span class="status-dot"></span><span>Online</span>';
+            } else {
+                statusBadge.className = 'status-badge bg-yellow-100 text-yellow-700';
+                const message = customMessage || 'Connecting...';
+                statusBadge.innerHTML = `<span>${message}</span>`;
+            }
+        }
+        
+        // Handle messages from server
+        function handleServerMessage(data) {
+            removeTypingIndicator();
+            
+            switch(data.type) {
+                case 'message':
+                    addBotMessage(data.content, 'message', data);
+                    break;
+                case 'status':
+                    if (data.status === 'searching' || data.status === 'thinking') {
+                        addTypingIndicator(data.message);
+                    }
+                    break;
+                case 'error':
+                    addBotMessage(data.content, 'error');
+                    break;
+                case 'system':
+                    console.log('System:', data.content);
+                    break;
+            }
+        }
+        
+        // Toggle chat window
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            const isOpen = chatWindow.classList.contains('open');
+            
+            if (isOpen) {
+                chatWindow.classList.remove('open');
+            } else {
+                chatWindow.classList.add('open');
+                document.getElementById('messageInput').focus();
+                
+                // Connect if not connected
+                if (!isConnected) {
+                    if (!ws || ws.readyState === WebSocket.CLOSED) {
+                        initWebSocket();
+                    }
+                }
+            }
+        }
+        
+        // Send message
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message) {
+                return;
+            }
+            
+            if (!isConnected) {
+                addBotMessage('Connecting to server, please wait...', 'error');
+                // Try to reconnect
+                if (!ws || ws.readyState === WebSocket.CLOSED) {
+                    initWebSocket();
+                }
+                return;
+            }
+            
+            if (ws.readyState !== WebSocket.OPEN) {
+                addBotMessage('Connection not ready. Please wait a moment...', 'error');
+                return;
+            }
+            
+            // Add user message to chat
+            addUserMessage(message);
+            
+            // Send to server
+            try {
+                ws.send(JSON.stringify({
+                    type: 'message',
+                    content: message
+                }));
+            } catch (error) {
+                console.error('Error sending message:', error);
+                addBotMessage('Failed to send message. Please try again.', 'error');
+                return;
+            }
+            
+            // Clear input
+            input.value = '';
+            
+            // Add typing indicator
+            addTypingIndicator();
+        }
+        
+        // Handle Enter key
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        // Add user message to chat
+        function addUserMessage(text) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex justify-end message-enter';
+            messageDiv.innerHTML = `
+                <div class="bg-blue-600 text-white rounded-2xl rounded-tr-none p-4 shadow-sm max-w-[80%]">
+                    <p class="text-sm leading-relaxed">${escapeHtml(text)}</p>
+                </div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+        }
+        
+        // Add bot message to chat
+        function addBotMessage(text, type = 'message', data = null) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex gap-3 message-enter';
+            
+            let messageContent = formatMessage(text);
+            
+            // Add products if available
+            if (data && data.products && data.products.length > 0) {
+                messageContent += formatProducts(data.products);
+            }
+            
+            // Add handover button if needed
+            if (data && data.needs_handover) {
+                messageContent += `
+                    <div class="mt-3 pt-3 border-t border-gray-200">
+                        <p class="text-xs text-gray-600 mb-2">Need more help?</p>
+                        <a href="https://wa.me/8801770375731" target="_blank" class="inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-600 transition">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                `;
+            }
+            
+            const bgClass = type === 'error' ? 'bg-red-50 border border-red-200' : 'bg-white';
+            
+            messageDiv.innerHTML = `
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    S
+                </div>
+                <div class="${bgClass} rounded-2xl rounded-tl-none p-4 shadow-sm max-w-[80%]">
+                    ${messageContent}
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+        }
+        
+        // Format message with markdown support
+        function formatMessage(text) {
+            // Convert markdown-style formatting
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            text = text.replace(/\n/g, '<br>');
+            
+            return `<div class="text-gray-800 text-sm leading-relaxed">${text}</div>`;
+        }
+        
+        // Format products
+        function formatProducts(products) {
+            let html = '<div class="mt-3 space-y-2">';
+            products.forEach(product => {
+                html += `
+                    <div class="product-card bg-gray-50 rounded-lg p-3 border border-gray-200">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-semibold text-sm text-gray-900">${escapeHtml(product.name)}</h4>
+                                <p class="text-xs text-gray-600 mt-1">${escapeHtml(product.flavor)}</p>
+                                <p class="text-sm font-bold text-blue-600 mt-1">${product.price} ${product.currency}</p>
+                            </div>
+                            <a href="${product.url}" target="_blank" class="text-blue-600 hover:text-blue-700 text-xs font-medium">
+                                View →
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            return html;
+        }
+        
+        // Add typing indicator
+        function addTypingIndicator(message = 'Thinking...') {
+            removeTypingIndicator();
+            
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typingIndicator';
+            typingDiv.className = 'flex gap-3 fade-in';
+            typingDiv.innerHTML = `
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    S
+                </div>
+                <div class="bg-white rounded-2xl rounded-tl-none p-4 shadow-sm">
+                    <div class="typing-indicator flex items-center gap-1">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        <span class="text-xs text-gray-500 ml-2">${escapeHtml(message)}</span>
+                    </div>
+                </div>
+            `;
+            messagesContainer.appendChild(typingDiv);
+            scrollToBottom();
+        }
+        
+        // Remove typing indicator
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+        
+        // Scroll to bottom
+        function scrollToBottom() {
+            const container = document.getElementById('chatMessages');
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        // Escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Stryker AI Assistant Widget Loaded');
+            console.log('WebSocket Server:', WS_SERVER);
+            
+            // Auto-connect on page load
+            initWebSocket();
+        });
+        
+        // Heartbeat to keep connection alive
+        setInterval(() => {
+            if (isConnected && ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'ping' }));
+            }
+        }, 30000); // Every 30 seconds
+        
+        // Reconnect on visibility change (when user comes back to tab)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && (!ws || ws.readyState === WebSocket.CLOSED)) {
+                console.log('Tab visible, reconnecting...');
+                reconnectAttempts = 0; // Reset attempts
+                initWebSocket();
+            }
+        });
+    </script>
+</body>
+</html>

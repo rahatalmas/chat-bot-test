@@ -1,0 +1,16 @@
+[
+  {
+    "id": "stryker_social_proof_chunk_1",
+    "company_id": "stryker_bd",
+    "type": "social_proof",
+    "title": "Recommended by Athletes",
+    "content": "Rating: 5.0, Reviews: 5",
+    "metadata": {
+      "section": "social_proof",
+      "type": "paragraph",
+      "language": "en",
+      "rating": 5.0,
+      "reviews_count": 5
+    }
+  }
+]

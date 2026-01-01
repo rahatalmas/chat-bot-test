@@ -1,0 +1,112 @@
+[
+  {
+    "id": "stryker_product_mixed_001",
+    "document": "Stryker Mixed Flavor is a sugar-free electrolyte drink sold in Bangladesh. This product is designed for hydration, workout performance, and post-workout recovery. It contains essential electrolytes, has zero sugar, and does not contain added sugar. Stryker Mixed Flavor can be consumed daily, during exercise, or after sports activities. This drink is promoted as Bangladesh’s first sugar-free electrolyte beverage and is suitable for people looking for a healthy hydration option.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "electrolyte_drink",
+      "flavor": "mixed",
+      "sugar_free": true,
+      "electrolytes": true,
+      "for_hydration": true,
+      "for_workout": true,
+      "for_recovery": true,
+      "price_bdt": 399,
+      "currency": "BDT",
+      "unit": "per bottle",
+      "product_url": "https://drinkstryker.com/product/mixed-flavor-12-bottles/",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=21912",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_product_blue_raspberry_001",
+    "document": "Stryker Blue Raspberry is a zero-sugar electrolyte sports drink designed to support hydration and physical activity. The drink replenishes electrolytes lost during workouts and exercise. It is suitable for fitness routines, outdoor sports, and daily hydration. This sugar-free electrolyte drink is intended for people who want a flavored sports drink without sugar.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "electrolyte_drink",
+      "flavor": "blue raspberry",
+      "sugar_free": true,
+      "electrolytes": true,
+      "for_hydration": true,
+      "for_workout": true,
+      "for_recovery": false,
+      "price_bdt": 399,
+      "currency": "BDT",
+      "unit": "per bottle",
+      "product_url": "https://drinkstryker.com/product/blue-raspberry-flavor-12-bottles/",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=21850",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_product_mango_orange_001",
+    "document": "Stryker Mango Orange is a sugar-free electrolyte drink created for hydration and post-workout recovery. The drink contains essential electrolytes and combines mango and orange flavors. It is suitable for workouts, exercise recovery, and active lifestyles. This electrolyte beverage is designed for people who need hydration support after physical activity without consuming sugar.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "electrolyte_drink",
+      "flavor": "mango orange",
+      "sugar_free": true,
+      "electrolytes": true,
+      "for_hydration": true,
+      "for_workout": true,
+      "for_recovery": true,
+      "price_bdt": 399,
+      "currency": "BDT",
+      "unit": "per bottle",
+      "product_url": "https://drinkstryker.com/product/mango-orange-flavor-12-bottles/",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=21848",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_product_strawberry_watermelon_001",
+    "document": "Stryker Strawberry Watermelon is a zero-sugar electrolyte drink designed for daily hydration and active lifestyles. It provides essential electrolytes and does not contain added sugar. This drink can be consumed during workouts, outdoor activities, or as a daily hydration beverage.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "electrolyte_drink",
+      "flavor": "strawberry watermelon",
+      "sugar_free": true,
+      "electrolytes": true,
+      "for_hydration": true,
+      "for_workout": true,
+      "for_recovery": false,
+      "price_bdt": 399,
+      "currency": "BDT",
+      "unit": "per bottle",
+      "product_url": "https://drinkstryker.com/product/strawberry-watermelon-flavor-12-bottles/",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=21803",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_product_bundle_001",
+    "document": "The Stryker bundle offer includes six bottles of sugar-free electrolyte drinks and one Murgi Squad T-shirt. This bundle is intended for customers who want both hydration products and official Stryker merchandise. All drinks in the bundle are zero sugar and contain electrolytes, making the bundle suitable for workouts, hydration, and recovery.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "product",
+      "category": "bundle_offer",
+      "bundle": true,
+      "includes_merchandise": true,
+      "sugar_free": true,
+      "electrolytes": true,
+      "for_hydration": true,
+      "for_workout": true,
+      "for_recovery": true,
+      "price_bdt": 3999,
+      "currency": "BDT",
+      "unit": "bundle",
+      "product_url": "https://drinkstryker.com/product/6-bottles-stryker-1-murgi-squad-t-shirt/",
+      "compare_url": "https://drinkstryker.com/?add-to-compare=22828",
+      "language": "en"
+    }
+  }
+]

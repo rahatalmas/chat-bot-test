@@ -1,0 +1,38 @@
+[
+  {
+    "id": "stryker_testimonial_chunk_1",
+    "company_id": "stryker_bd",
+    "type": "testimonial",
+    "title": "Snigdho Marathon Runner",
+    "content": "Stryker keeps me focused and energized throughout my long-distance runs. With no sugar and clean electrolytes, it gives my body exactly what it needs.",
+    "metadata": {
+      "section": "testimonial",
+      "type": "paragraph",
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_testimonial_chunk_2",
+    "company_id": "stryker_bd",
+    "type": "testimonial",
+    "title": "Dr. Neon Bodybuilder",
+    "content": "In the gym, every set and rep matters. Stryker gives me a clean boost with zero sugar and essential electrolytes.",
+    "metadata": {
+      "section": "testimonial",
+      "type": "paragraph",
+      "language": "en"
+    }
+  },
+  {
+    "id": "stryker_testimonial_chunk_3",
+    "company_id": "stryker_bd",
+    "type": "testimonial",
+    "title": "Steve Long Founder",
+    "content": "Healthy hydration options were hard to find in Bangladesh, so I created Stryker. Developed in Germany, it’s packed with clean electrolytes and zero sugar.",
+    "metadata": {
+      "section": "testimonial",
+      "type": "paragraph",
+      "language": "en"
+    }
+  }
+]

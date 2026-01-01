@@ -1,0 +1,128 @@
+[
+  {
+    "id": "stryker_brand_info_001",
+    "document": "Stryker is Bangladesh’s first sugar-free electrolyte drink. The brand was developed in Germany and created specifically for consumers in Bangladesh. Stryker offers zero sugar hydration with essential electrolytes and is positioned as a healthy alternative to sugary electrolyte drinks. The brand focuses on clean ingredients, good taste, and better hydration.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "brand",
+      "category": "brand_information",
+      "sugar_free": true,
+      "electrolytes": true,
+      "developed_in": "Germany",
+      "market": "Bangladesh",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_contact_info_001",
+    "document": "Stryker customer support can be contacted via email, phone, or WhatsApp. The official email address is info@drinkstryker.com. The phone and WhatsApp contact number is +8801770375731. Customers can reach out for product information, orders, and support.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "contact",
+      "category": "contact_information",
+      "email": "info@drinkstryker.com",
+      "phone": "+8801770375731",
+      "whatsapp": "+8801770375731",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_legal_info_001",
+    "document": "Stryker operates under a registered trade license in Bangladesh. The official trade license number is TRAD/DNCC/020451/2024. The Stryker brand is copyrighted in 2025. The website and digital presence were developed by Studio Akabaka.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "legal",
+      "category": "legal_information",
+      "trade_license": "TRAD/DNCC/020451/2024",
+      "copyright_year": 2025,
+      "developer": "Studio Akabaka",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_promotion_whatsapp_001",
+    "document": "Stryker offers exclusive promotional discounts through WhatsApp. Customers can contact the brand on WhatsApp to receive special deals and discount offers. By requesting a discount, users agree to the privacy policy and email communication.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "promotion",
+      "category": "discount_offer",
+      "channel": "whatsapp",
+      "cta_text": "Get your Discount",
+      "cta_url": "https://wa.me/8801770375731",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_social_links_001",
+    "document": "Stryker is active on social media platforms including Facebook, Instagram, TikTok, and WhatsApp. Customers can follow these channels for updates, promotions, and brand content.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "social",
+      "category": "social_links",
+      "facebook_url": "https://www.facebook.com/drinkstryker",
+      "instagram_url": "https://www.instagram.com/drink_stryker/",
+      "tiktok_url": "https://www.tiktok.com/@drink.stryker",
+      "whatsapp_url": "https://wa.me/8801770375731",
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_social_proof_001",
+    "document": "Stryker is recommended by athletes and fitness enthusiasts. The brand currently has a rating of 5.0 stars based on five customer reviews, indicating strong customer satisfaction.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "social_proof",
+      "category": "ratings_reviews",
+      "rating": 5.0,
+      "reviews_count": 5,
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_testimonial_runner_001",
+    "document": "Snigdho, a marathon runner, states that Stryker helps him stay focused and energized during long-distance runs. He highlights that the drink contains no sugar and provides clean electrolytes that support endurance.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "testimonial",
+      "category": "athlete_testimonial",
+      "person_role": "marathon runner",
+      "sugar_free": true,
+      "electrolytes": true,
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_testimonial_bodybuilder_001",
+    "document": "Dr. Neon, a bodybuilder, shares that Stryker supports his gym performance by providing a clean boost. He emphasizes the zero sugar formula and the presence of essential electrolytes during workouts.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "testimonial",
+      "category": "fitness_testimonial",
+      "person_role": "bodybuilder",
+      "sugar_free": true,
+      "electrolytes": true,
+      "language": "en"
+    }
+  },
+
+  {
+    "id": "stryker_testimonial_founder_001",
+    "document": "Steve Long, the founder of Stryker, explains that the brand was created to solve the lack of healthy hydration options in Bangladesh. He states that Stryker was developed in Germany and contains clean electrolytes with zero sugar.",
+    "metadata": {
+      "company_id": "stryker_bd",
+      "type": "testimonial",
+      "category": "founder_statement",
+      "person_role": "founder",
+      "developed_in": "Germany",
+      "sugar_free": true,
+      "language": "en"
+    }
+  }
+]
