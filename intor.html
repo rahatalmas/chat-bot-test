@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ButterChat - AI Employees That Never Sleep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6B35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6B35 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 165, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    
+    <!-- Animated Background Blurs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse" style="background: rgba(255, 215, 0, 0.15);"></div>
+        <div class="absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse" style="background: rgba(255, 165, 0, 0.15); animation-delay: 1s;"></div>
+        <div class="absolute bottom-0 left-1/2 w-96 h-96 rounded-full blur-3xl animate-pulse" style="background: rgba(255, 107, 53, 0.15); animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/60 backdrop-blur-xl border-b border-white/5 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img 
+                    src="https://media.licdn.com/dms/image/v2/D560BAQHBP3iy4yAOCg/company-logo_100_100/B56Zsm5AjGGgAQ-/0/1765884037918?e=1769040000&v=beta&t=87LlMfQgvAYSnh1xB9WlmTAXwRjljCzfbvkEQVosD6Y" 
+                    alt="Studio Butterfly Logo" 
+                    class="w-10 h-10 rounded-lg"
+                />
+                <div>
+                    <span class="text-xl font-bold gradient-text">ButterChat</span>
+                    <span class="text-xs text-white/40 ml-2">by Studio Butterfly</span>
+                </div>
+            </div>
+            <button class="gradient-bg px-6 py-2.5 rounded-lg font-semibold text-black hover:opacity-90 transition-all">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
+            <img 
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&q=80" 
+                alt="AI Background"
+                class="w-full h-full object-cover"
+            />
+        </div>
+        
+        <div class="max-w-6xl mx-auto text-center relative z-20">
+            <div class="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-xl px-5 py-2 rounded-full mb-8 border border-white/10">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background: #FFD700;"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2" style="background: #FFD700;"></span>
+                </span>
+                <span class="text-sm text-white/70">Live and Running 24/7</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                AI Employees:<br>
+                <span class="gradient-text">Your Helpers That<br>Never Sleep</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Build, grow, and scale your business with a team of AI employees working around the clock
+            </p>
+            
+            <button class="group gradient-bg px-12 py-5 rounded-xl font-bold text-lg text-black hover:opacity-90 transition-all inline-flex items-center space-x-3">
+                <span>Get ButterChat</span>
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Meet Your AI Team -->
+    <section class="relative py-32 px-6">
+        <div class="absolute inset-0 opacity-20">
+            <img 
+                src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1920&q=80" 
+                alt="Digital workspace"
+                class="w-full h-full object-cover"
+            />
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    Meet Your <span class="gradient-text">AI Team</span>
+                </h2>
+                <p class="text-xl text-white/60 max-w-2xl mx-auto">
+                    Each AI employee specializes in different business functions, working together to multiply your productivity
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Agent Card 1 -->
+                <div class="card-hover bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gradient-bg rounded-xl mb-4 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Scout</h3>
+                        <p class="gradient-text text-sm font-semibold mb-3">Sales Agent</p>
+                        <p class="text-white/70 leading-relaxed">Automates outreach, qualifies leads, and books meetings while you focus on closing deals</p>
+                    </div>
+                </div>
+
+                <!-- Agent Card 2 -->
+                <div class="card-hover bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gradient-bg rounded-xl mb-4 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Echo</h3>
+                        <p class="gradient-text text-sm font-semibold mb-3">Support Specialist</p>
+                        <p class="text-white/70 leading-relaxed">Handles customer queries 24/7 with context-aware responses that feel genuinely helpful</p>
+                    </div>
+                </div>
+
+                <!-- Agent Card 3 -->
+                <div class="card-hover bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gradient-bg rounded-xl mb-4 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Sage</h3>
+                        <p class="gradient-text text-sm font-semibold mb-3">Analytics Agent</p>
+                        <p class="text-white/70 leading-relaxed">Transforms raw data into actionable business insights without the manual work</p>
+                    </div>
+                </div>
+
+                <!-- Agent Card 4 -->
+                <div class="card-hover bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gradient-bg rounded-xl mb-4 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Maestro</h3>
+                        <p class="gradient-text text-sm font-semibold mb-3">Workflow Orchestrator</p>
+                        <p class="text-white/70 leading-relaxed">Coordinates your AI team to execute complex multi-step tasks seamlessly</p>
+                    </div>
+                </div>
+
+                <!-- Agent Card 5 -->
+                <div class="card-hover bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gradient-bg rounded-xl mb-4 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Atlas</h3>
+                        <p class="gradient-text text-sm font-semibold mb-3">Knowledge Manager</p>
+                        <p class="text-white/70 leading-relaxed">Organizes and retrieves company knowledge instantly when your team needs it</p>
+                    </div>
+                </div>
+
+                <!-- Agent Card 6 -->
+                <div class="card-hover bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 gradient-bg rounded-xl mb-4 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Nova</h3>
+                        <p class="gradient-text text-sm font-semibold mb-3">Marketing Strategist</p>
+                        <p class="text-white/70 leading-relaxed">Creates campaigns, analyzes performance, and optimizes your marketing efforts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-32 px-6">
+        <div class="absolute inset-0 opacity-20">
+            <img 
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80" 
+                alt="Technology"
+                class="w-full h-full object-cover"
+            />
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-12 md:p-16">
+                <h2 class="text-4xl md:text-6xl font-black mb-6">
+                    Ready to Build Your <span class="gradient-text">AI Team?</span>
+                </h2>
+                <p class="text-xl text-white/70 mb-10 leading-relaxed">
+                    Join hundreds of businesses scaling faster with ButterChat. Start your free trial today.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your work email"
+                        class="px-6 py-4 rounded-xl bg-black/50 border border-white/20 focus:outline-none w-full sm:w-96 text-white placeholder-white/40"
+                        style="border-color: rgba(255, 165, 0, 0.2);"
+                        onfocus="this.style.borderColor='rgba(255, 165, 0, 0.5)'"
+                        onblur="this.style.borderColor='rgba(255, 165, 0, 0.2)'"
+                    />
+                    <button class="gradient-bg px-10 py-4 rounded-xl font-bold text-black hover:opacity-90 transition-all w-full sm:w-auto whitespace-nowrap">
+                        Start Free Trial
+                    </button>
+                </div>
+                <p class="text-sm text-white/50">No credit card required - 14-day free trial</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                <img 
+                    src="https://media.licdn.com/dms/image/v2/D560BAQHBP3iy4yAOCg/company-logo_100_100/B56Zsm5AjGGgAQ-/0/1765884037918?e=1769040000&v=beta&t=87LlMfQgvAYSnh1xB9WlmTAXwRjljCzfbvkEQVosD6Y" 
+                    alt="Studio Butterfly Logo" 
+                    class="w-8 h-8 rounded-lg"
+                />
+                <span class="font-bold gradient-text">ButterChat</span>
+                <span class="text-xs text-white/40">by Studio Butterfly</span>
+            </div>
+            <p class="text-white/40 text-sm">© 2025 Studio Butterfly. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
