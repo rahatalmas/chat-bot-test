@@ -187,44 +187,66 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center px-6 pt-20">
-        <!-- Background Image -->
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
-            <img 
-                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1920&q=80" 
-                alt="Code Background"
-                class="w-full h-full object-cover"
-            />
+<!-- Hero Section -->
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+
+  <!-- Background Image (ONLY mobile & tablet) -->
+  <div class="absolute inset-0 lg:hidden">
+    <img
+      src="https://i.pinimg.com/736x/2f/5a/ee/2f5aeefffbc37dc67207e6999e9ab33c.jpg"
+      alt="AI Robot Background"
+      class="w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 pt-24 pb-24 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left Content -->
+      <div>
+        <div class="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-xl px-5 py-2.5 rounded-full mb-8 border border-white/10">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-emerald-400"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+          </span>
+          <span class="text-sm text-white/70">Live and Executing 24/7</span>
         </div>
-        
-        <div class="max-w-6xl mx-auto text-center relative z-20">
-            <div class="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-xl px-5 py-2 rounded-full mb-8 border border-white/10">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background: #10B981;"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2" style="background: #10B981;"></span>
-                </span>
-                <span class="text-sm text-white/70">Live and Executing 24/7</span>
-            </div>
-            
-            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
-                AI Employees:<br>
-                <span class="gradient-text">Your Helpers That<br>Never Sleep</span>
-            </h1>
-            
-            <p class="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Automate, scale, and optimize your business with intelligent AI agents running continuous workflows
-            </p>
-            
-            <button class="group gradient-bg px-12 py-5 rounded-xl font-bold text-lg text-white hover:opacity-90 transition-all inline-flex items-center space-x-3">
-                <span>Get ButterChat</span>
-                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                </svg>
-            </button>
-        </div>
-    </section>
+
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+          AI Employees:<br>
+          <span class="gradient-text">Helpers That<br>Never Sleep</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-white/60 mb-10 leading-relaxed">
+          Automate, scale, and optimize your business with intelligent AI agents running continuous workflows.
+        </p>
+
+        <button class="group gradient-bg px-10 py-5 rounded-xl font-bold text-lg text-white hover:opacity-90 transition inline-flex items-center space-x-3">
+          <span>Get ButterChat</span>
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Right Image (ONLY desktop) -->
+      <div class="relative hidden lg:block">
+        <img
+          src="https://i.pinimg.com/736x/2f/5a/ee/2f5aeefffbc37dc67207e6999e9ab33c.jpg"
+          alt="AI Robot"
+          class="rounded-3xl shadow-2xl object-cover w-full h-[650px]"
+        />
+
+        <!-- Gradient Fade -->
+        <div class="absolute inset-0 bg-gradient-to-l from-black/80 via-black/30 to-transparent rounded-3xl"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- Meet Your AI Team -->
     <section class="relative py-32 px-6">
