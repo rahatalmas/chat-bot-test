@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ButterChat - AI Employees That Never Sleep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.4);
+        }
+        
+        .avatar-glow {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+        }
+        
+        .code-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0 1rem;
+            display: flex;
+            align-items: stretch;
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-slide {
+                min-width: 50%;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .carousel-slide {
+                min-width: 33.333%;
+            }
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(16, 185, 129, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(16, 185, 129, 0.5);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-btn.prev { left: 1rem; }
+        .carousel-btn.next { right: 1rem; }
+        
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid #10B981;
+            white-space: nowrap;
+            animation: typing 3s steps(40) infinite, blink 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            0%, 100% { width: 0; }
+            50% { width: 100%; }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.05);
+            }
+        }
+        
+        .bot-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .demo-chat-bubble {
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+    
+    <!-- Animated Background Blurs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse" style="background: rgba(16, 185, 129, 0.15);"></div>
+        <div class="absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse" style="background: rgba(5, 150, 105, 0.15); animation-delay: 1s;"></div>
+        <div class="absolute bottom-0 left-1/2 w-96 h-96 rounded-full blur-3xl animate-pulse" style="background: rgba(4, 120, 87, 0.15); animation-delay: 2s;"></div>
+    </div>
+    
+    <!-- Floating Code Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none opacity-10">
+        <div class="absolute top-20 left-10 text-xs text-green-400 code-float" style="animation-delay: 0s;">if (task) { execute(); }</div>
+        <div class="absolute top-40 right-20 text-xs text-green-400 code-float" style="animation-delay: 0.5s;">async function automate()</div>
+        <div class="absolute bottom-40 left-1/4 text-xs text-green-400 code-float" style="animation-delay: 1s;">while(true) { optimize(); }</div>
+        <div class="absolute bottom-20 right-1/3 text-xs text-green-400 code-float" style="animation-delay: 1.5s;">const agent = new AI()</div>
+        <div class="absolute top-1/3 right-10 text-xs text-green-400 code-float" style="animation-delay: 2s;">loop { process.run() }</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/60 backdrop-blur-xl border-b border-white/5 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img 
+                    src="https://media.licdn.com/dms/image/v2/D560BAQHBP3iy4yAOCg/company-logo_100_100/B56Zsm5AjGGgAQ-/0/1765884037918?e=1769040000&v=beta&t=87LlMfQgvAYSnh1xB9WlmTAXwRjljCzfbvkEQVosD6Y" 
+                    alt="Studio Butterfly Logo" 
+                    class="w-10 h-10 rounded-lg"
+                />
+                <div>
+                    <span class="text-xl font-bold gradient-text">ButterChat</span>
+                    <span class="text-xs text-white/40 ml-2">by Studio Butterfly</span>
+                </div>
+            </div>
+            <button class="gradient-bg px-6 py-2.5 rounded-lg font-semibold text-white hover:opacity-90 transition-all">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
+            <img 
+                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=1920&q=80" 
+                alt="Code Background"
+                class="w-full h-full object-cover"
+            />
+        </div>
+        
+        <div class="max-w-6xl mx-auto text-center relative z-20">
+            <div class="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-xl px-5 py-2 rounded-full mb-8 border border-white/10">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background: #10B981;"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2" style="background: #10B981;"></span>
+                </span>
+                <span class="text-sm text-white/70">Live and Executing 24/7</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                AI Employees:<br>
+                <span class="gradient-text">Your Helpers That<br>Never Sleep</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Automate, scale, and optimize your business with intelligent AI agents running continuous workflows
+            </p>
+            
+            <button class="group gradient-bg px-12 py-5 rounded-xl font-bold text-lg text-white hover:opacity-90 transition-all inline-flex items-center space-x-3">
+                <span>Get ButterChat</span>
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Meet Your AI Team -->
+    <section class="relative py-32 px-6">
+        <div class="absolute inset-0 opacity-10">
+            <img 
+                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1920&q=80" 
+                alt="Programming"
+                class="w-full h-full object-cover"
+            />
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    Meet Your <span class="gradient-text">AI Team</span>
+                </h2>
+                <p class="text-xl text-white/60 max-w-2xl mx-auto">
+                    Specialized AI agents designed to execute, automate, and optimize every aspect of your business
+                </p>
+            </div>
+            
+            <!-- Carousel Controls -->
+            <div class="carousel-container relative max-w-7xl mx-auto">
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                
+                <button class="carousel-btn next" onclick="moveCarousel(1)">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Agent Card 1 - Orion -->
+                    <div class="carousel-slide">
+                        <div class="card-hover bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group h-full flex flex-col">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center text-center flex-grow">
+                                <div class="w-32 h-32 mb-6 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring flex-shrink-0">
+                                    <img src="https://i.pinimg.com/1200x/b6/8d/43/b68d4348592732c5abcd0c9825fa9302.jpg" alt="Orion" class="w-full h-full object-cover rounded-full"/>
+                                </div>
+                                
+                                <h3 class="text-3xl font-black mb-2 gradient-text">Orion</h3>
+                                <p class="text-sm font-bold text-green-400 mb-4 uppercase tracking-wider">Sales Constellation</p>
+                                <p class="text-white/70 leading-relaxed">
+                                    Executes automated outreach scripts, qualifies leads through intelligent filtering, and schedules meetings via API integrations
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Card 2 - Nebula -->
+                    <div class="carousel-slide">
+                        <div class="card-hover bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group h-full flex flex-col">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center text-center flex-grow">
+                                <div class="w-32 h-32 mb-6 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring flex-shrink-0">
+                                    <img src="https://i.pinimg.com/736x/b9/e4/de/b9e4deb60fc2b9f02b3b869df9cd7b19.jpg" alt="Nebula" class="w-full h-full object-cover rounded-full"/>
+                                </div>
+                                
+                                <h3 class="text-3xl font-black mb-2 gradient-text">Nebula</h3>
+                                <p class="text-sm font-bold text-green-400 mb-4 uppercase tracking-wider">Support Cosmos</p>
+                                <p class="text-white/70 leading-relaxed">
+                                    Processes customer queries through NLP algorithms, executes response workflows, and routes complex cases automatically
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Card 3 - Quasar -->
+                    <div class="carousel-slide">
+                        <div class="card-hover bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group h-full flex flex-col">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center text-center flex-grow">
+                                <div class="w-32 h-32 mb-6 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring flex-shrink-0">
+                                    <img src="https://i.pinimg.com/736x/28/52/8e/28528e4539dcab72f992ca0681abc6c0.jpg" alt="Quasar" class="w-full h-full object-cover rounded-full"/>
+                                </div>
+                                
+                                <h3 class="text-3xl font-black mb-2 gradient-text">Quasar</h3>
+                                <p class="text-sm font-bold text-green-400 mb-4 uppercase tracking-wider">Analytics Pulsar</p>
+                                <p class="text-white/70 leading-relaxed">
+                                    Runs data pipelines continuously, generates insights through ML algorithms, and triggers automated reports on schedule
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Card 4 - Celestia -->
+                    <div class="carousel-slide">
+                        <div class="card-hover bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group h-full flex flex-col">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center text-center flex-grow">
+                                <div class="w-32 h-32 mb-6 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring flex-shrink-0">
+                                    <img src="https://i.pinimg.com/736x/46/82/09/4682090e0ff384eb845b549feffead99.jpg" alt="Celestia" class="w-full h-full object-cover rounded-full"/>
+                                </div>
+                                
+                                <h3 class="text-3xl font-black mb-2 gradient-text">Celestia</h3>
+                                <p class="text-sm font-bold text-green-400 mb-4 uppercase tracking-wider">Workflow Galaxy</p>
+                                <p class="text-white/70 leading-relaxed">
+                                    Coordinates multi-agent task sequences, manages execution queues, and handles parallel processing workflows
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Card 5 - Cosmos -->
+                    <div class="carousel-slide">
+                        <div class="card-hover bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group h-full flex flex-col">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center text-center flex-grow">
+                                <div class="w-32 h-32 mb-6 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring flex-shrink-0">
+                                    <img src="https://i.pinimg.com/736x/e9/2e/7e/e92e7eae979d3356975a38c03c05f453.jpg" alt="Cosmos" class="w-full h-full object-cover rounded-full"/>
+                                </div>
+                                
+                                <h3 class="text-3xl font-black mb-2 gradient-text">Cosmos</h3>
+                                <p class="text-sm font-bold text-green-400 mb-4 uppercase tracking-wider">Knowledge Universe</p>
+                                <p class="text-white/70 leading-relaxed">
+                                    Indexes documentation in vector databases, executes semantic search queries, and maintains knowledge graphs automatically
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Card 6 - Astra -->
+                    <div class="carousel-slide">
+                        <div class="card-hover bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group h-full flex flex-col">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center text-center flex-grow">
+                                <div class="w-32 h-32 mb-6 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring flex-shrink-0">
+                                    <img src="https://i.pinimg.com/736x/d7/70/8d/d7708d8591933e4128da6b8c95ab2e1f.jpg" alt="Astra" class="w-full h-full object-cover rounded-full"/>
+                                </div>
+                                
+                                <h3 class="text-3xl font-black mb-2 gradient-text">Astra</h3>
+                                <p class="text-sm font-bold text-green-400 mb-4 uppercase tracking-wider">Marketing Supernova</p>
+                                <p class="text-white/70 leading-relaxed">
+                                    Deploys campaign automation scripts, optimizes ad performance through A/B testing loops, and generates content via templates
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Agent Card 7 - Andromeda -->
+                    <div class="carousel-slide">
+                        <div class="card-hover bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group h-full flex flex-col">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center text-center flex-grow">
+                                <div class="w-32 h-32 mb-6 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring flex-shrink-0">
+                                    <img src="https://i.pinimg.com/1200x/b0/8d/3e/b08d3e2f8762f937a433ceab084ef150.jpg" alt="Andromeda" class="w-full h-full object-cover rounded-full"/>
+                                </div>
+                                
+                                <h3 class="text-3xl font-black mb-2 gradient-text">Andromeda</h3>
+                                <p class="text-sm font-bold text-green-400 mb-4 uppercase tracking-wider">Strategy Stellar</p>
+                                <p class="text-white/70 leading-relaxed">
+                                    Analyzes market trends, formulates strategic recommendations, and executes competitive intelligence workflows
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Agent Card 8 - Polaris -->
+                    <div class="carousel-slide">
+                        <div class="card-hover bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group h-full flex flex-col">
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);"></div>
+                            
+                            <div class="relative z-10 flex flex-col items-center text-center flex-grow">
+                                <div class="w-32 h-32 mb-6 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring flex-shrink-0">
+                                    <img src="https://i.pinimg.com/1200x/1e/6c/c2/1e6cc29d379d6d110be5ac0e161ef82e.jpg" alt="Polaris" class="w-full h-full object-cover rounded-full"/>
+                                </div>
+                                
+                                <h3 class="text-3xl font-black mb-2 gradient-text">Polaris</h3>
+                                <p class="text-sm font-bold text-green-400 mb-4 uppercase tracking-wider">Operations Navigator</p>
+                                <p class="text-white/70 leading-relaxed">
+                                    Monitors system health, optimizes resource allocation, and maintains continuous operational excellence
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Indicators -->
+            <div class="flex justify-center mt-8 space-x-2" id="carouselIndicators"></div>
+        </div>
+    </section>
+
+    <!-- AI Brain Power Section -->
+    <section class="relative py-32 px-6 overflow-hidden">
+        <div class="absolute inset-0">
+            <img 
+                src="https://cdn.prod.website-files.com/661d4f6d81ac1042b721396c/673eb161f734e9a1b54ff1bc_brain-ai-floaters-p-2000.png" 
+                alt="AI Brain Network"
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-black/0 to-black"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto relative z-10 ">
+            <div class="text-center mb-16">
+                <div class="h-52"></div>
+                <div class="h-32"></div>
+            </div>
+            
+            <div class="flex justify-center items-center">
+                <div class="relative">
+                    <!-- Central Agent Avatar -->
+                    <div class="w-80 h-80 rounded-full gradient-bg avatar-glow p- relative pulse-ring">
+                        <img src="https://i.pinimg.com/736x/e9/2e/7e/e92e7eae979d3356975a38c03c05f453.jpg" alt="Cosmos AI Core" class="w-full h-full object-cover rounded-full"/>
+                    </div>
+                    
+                    <!-- Floating Data Points -->
+                    <div class="absolute -top-8 -left-8 bg-green-500/20 backdrop-blur-xl border border-green-500/50 rounded-2xl p-4 animate-pulse">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="absolute -bottom-8 -right-8 bg-green-500/20 backdrop-blur-xl border border-green-500/50 rounded-2xl p-4 animate-pulse" style="animation-delay: 0.5s;">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="absolute top-1/2 -right-16 bg-green-500/20 backdrop-blur-xl border border-green-500/50 rounded-2xl p-4 animate-pulse" style="animation-delay: 1s;">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="absolute top-1/2 -left-16 bg-green-500/20 backdrop-blur-xl border border-green-500/50 rounded-2xl p-4 animate-pulse" style="animation-delay: 1.5s;">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mt-20">
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Lightning Fast</h3>
+                    <p class="text-white/60">Process thousands of tasks simultaneously with distributed computing</p>
+                </div>
+                
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Self-Learning</h3>
+                    <p class="text-white/60">Agents improve continuously from every interaction and feedback</p>
+                </div>
+                
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Enterprise Secure</h3>
+                    <p class="text-white/60">Bank-level encryption with SOC 2 Type II compliance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section class="relative py-32 px-6 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img 
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80" 
+                alt="Technology"
+                class="w-full h-full object-cover"
+            />
+        </div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    Watch AI <span class="gradient-text">In Action</span>
+                </h2>
+                <p class="text-xl text-white/60">
+                    See how our agents work tirelessly to automate your workflows
+                </p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <!-- Left: Bot Avatar -->
+                    <div class="flex justify-center">
+                        <div class="relative">
+                            <div class="w-64 h-64 rounded-full gradient-bg avatar-glow p-1 relative pulse-ring">
+                                <img src="https://i.pinimg.com/736x/b9/e4/de/b9e4deb60fc2b9f02b3b869df9cd7b19.jpg" alt="Nebula AI" class="w-full h-full object-cover rounded-full"/>
+                            </div>
+                            <div class="absolute -top-4 -right-4 bg-green-500 rounded-full p-4 animate-pulse">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Chat Interface -->
+                    <div class="space-y-4">
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 rounded-full gradient-bg flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-white font-bold">N</span>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-semibold text-green-400 mb-1">Nebula AI</p>
+                                    <p class="text-white/80 demo-chat-bubble">Processing customer inquiry #2847...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6" style="animation-delay: 0.5s;">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 rounded-full gradient-bg flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-white font-bold">N</span>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-semibold text-green-400 mb-1">Nebula AI</p>
+                                    <p class="text-white/80 demo-chat-bubble">✓ Analyzed sentiment: Positive</p>
+                                    <p class="text-white/80 demo-chat-bubble">✓ Retrieved relevant docs from knowledge base</p>
+                                    <p class="text-white/80 demo-chat-bubble">✓ Generated personalized response</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6" style="animation-delay: 1s;">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 rounded-full gradient-bg flex-shrink-0 flex items-center justify-center">
+                                    <span class="text-white font-bold">N</span>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-semibold text-green-400 mb-1">Nebula AI</p>
+                                    <div class="text-white/80">
+                                        <p class="typing-animation demo-chat-bubble">Sending response and updating CRM...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between bg-green-500/10 border border-green-500/30 rounded-xl p-4">
+                            <span class="text-green-400 font-semibold">Task Completed</span>
+                            <span class="text-white/60 text-sm">Response time: 2.3s</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Bar -->
+                <div class="grid grid-cols-3 gap-4 mt-12">
+                    <div class="text-center">
+                        <p class="text-3xl font-black gradient-text mb-1">24/7</p>
+                        <p class="text-white/60 text-sm">Always Active</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-black gradient-text mb-1">10x</p>
+                        <p class="text-white/60 text-sm">Faster Response</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-black gradient-text mb-1">99.9%</p>
+                        <p class="text-white/60 text-sm">Accuracy Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-32 px-6">
+        <div class="absolute inset-0 opacity-10">
+            <img 
+                src="https://images.unsplash.com/photo-1605379399642-870262d3d051?w=1920&q=80" 
+                alt="Automation"
+                class="w-full h-full object-cover"
+            />
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-12 md:p-16">
+                <h2 class="text-4xl md:text-6xl font-black mb-6">
+                    Ready to Deploy Your <span class="gradient-text">AI Team?</span>
+                </h2>
+                <p class="text-xl text-white/70 mb-10 leading-relaxed">
+                    Start automating workflows with intelligent agents. No coding required.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your work email"
+                        class="px-6 py-4 rounded-xl bg-black/50 border border-white/20 focus:outline-none w-full sm:w-96 text-white placeholder-white/40"
+                        style="border-color: rgba(16, 185, 129, 0.3);"
+                        onfocus="this.style.borderColor='rgba(16, 185, 129, 0.6)'"
+                        onblur="this.style.borderColor='rgba(16, 185, 129, 0.3)'"
+                    />
+                    <button class="gradient-bg px-10 py-4 rounded-xl font-bold text-white hover:opacity-90 transition-all w-full sm:w-auto whitespace-nowrap">
+                        Start Free Trial
+                    </button>
+                </div>
+                <p class="text-sm text-white/50">No credit card required • 14-day free trial</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center space-x-3 mb-4 md:mb-0">
+
+                <span class="font-bold gradient-text">ButterChat</span>
+                <span class="text-xs text-white/40">by Studio Butterfly</span>
+            </div>
+            <p class="text-white/40 text-sm">© 2025 Studio Butterfly. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        let currentSlide = 0;
+        const track = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        
+        // Determine slides per view based on screen size
+        function getSlidesPerView() {
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+        
+        // Create indicators
+        function createIndicators() {
+            const indicatorsContainer = document.getElementById('carouselIndicators');
+            indicatorsContainer.innerHTML = '';
+            const slidesPerView = getSlidesPerView();
+            const totalPages = Math.ceil(totalSlides / slidesPerView);
+            
+            for (let i = 0; i < totalPages; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'w-2 h-2 rounded-full transition-all cursor-pointer';
+                indicator.style.background = i === 0 ? '#10B981' : 'rgba(255, 255, 255, 0.3)';
+                indicator.onclick = () => goToSlide(i);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+        
+        function updateCarousel() {
+            const slidesPerView = getSlidesPerView();
+            const slideWidth = 100 / slidesPerView;
+            track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('#carouselIndicators > div');
+            indicators.forEach((indicator, index) => {
+                indicator.style.background = index === Math.floor(currentSlide / slidesPerView) ? '#10B981' : 'rgba(255, 255, 255, 0.3)';
+                indicator.style.width = index === Math.floor(currentSlide / slidesPerView) ? '2rem' : '0.5rem';
+            });
+        }
+        
+        function moveCarousel(direction) {
+            const slidesPerView = getSlidesPerView();
+            const maxSlide = totalSlides - slidesPerView;
+            currentSlide = Math.max(0, Math.min(currentSlide + direction, maxSlide));
+            updateCarousel();
+        }
+        
+        function goToSlide(page) {
+            const slidesPerView = getSlidesPerView();
+            currentSlide = page * slidesPerView;
+            updateCarousel();
+        }
+        
+        // Auto-play carousel
+        let autoplayInterval = setInterval(() => {
+            const slidesPerView = getSlidesPerView();
+            const maxSlide = totalSlides - slidesPerView;
+            if (currentSlide >= maxSlide) {
+                currentSlide = 0;
+            } else {
+                currentSlide++;
+            }
+            updateCarousel();
+        }, 4000);
+        
+        // Pause on hover
+        track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+        track.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(() => {
+                const slidesPerView = getSlidesPerView();
+                const maxSlide = totalSlides - slidesPerView;
+                if (currentSlide >= maxSlide) {
+                    currentSlide = 0;
+                } else {
+                    currentSlide++;
+                }
+                updateCarousel();
+            }, 4000);
+        });
+        
+        // Responsive handling
+        window.addEventListener('resize', () => {
+            currentSlide = 0;
+            createIndicators();
+            updateCarousel();
+        });
+        
+        // Initialize
+        createIndicators();
+        updateCarousel();
+    </script>
+
+</body>
+</html>
